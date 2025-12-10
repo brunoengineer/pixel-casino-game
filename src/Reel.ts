@@ -4,8 +4,6 @@ export class Reel {
   private element: HTMLElement;
   private strip: HTMLElement;
   private symbols: Symbol[] = [];
-  private currentPosition: number = 0;
-  private spinning: boolean = false;
   private stoppedSymbols: Symbol[] = [];
 
   constructor(container: HTMLElement) {
@@ -30,7 +28,7 @@ export class Reel {
       symbolEl.className = 'symbol';
       
       const img = document.createElement('img');
-      img.src = `/img/${symbol}.png`;
+      img.src = `./img/${symbol}.png`;
       img.alt = symbol;
       img.className = 'symbol-img';
       
@@ -40,13 +38,11 @@ export class Reel {
   }
 
   public spin(): void {
-    this.spinning = true;
     this.element.classList.add('spinning');
   }
 
   public stop(finalSymbolIndex: number): Promise<void> {
     return new Promise((resolve) => {
-      this.spinning = false;
       this.element.classList.remove('spinning');
 
       // Generate 3 weighted random symbols for this reel result
@@ -75,7 +71,7 @@ export class Reel {
           img.className = 'symbol-img';
           symbolElements[topIndex].appendChild(img);
         }
-        img.src = `/img/${this.stoppedSymbols[0]}.png`;
+        img.src = `./img/${this.stoppedSymbols[0]}.png`;
         img.alt = this.stoppedSymbols[0];
       }
       
@@ -87,7 +83,7 @@ export class Reel {
           img.className = 'symbol-img';
           symbolElements[finalSymbolIndex].appendChild(img);
         }
-        img.src = `/img/${this.stoppedSymbols[1]}.png`;
+        img.src = `./img/${this.stoppedSymbols[1]}.png`;
         img.alt = this.stoppedSymbols[1];
       }
       
@@ -100,7 +96,7 @@ export class Reel {
           img.className = 'symbol-img';
           symbolElements[bottomIndex].appendChild(img);
         }
-        img.src = `/img/${this.stoppedSymbols[2]}.png`;
+        img.src = `./img/${this.stoppedSymbols[2]}.png`;
         img.alt = this.stoppedSymbols[2];
       }
 
@@ -122,7 +118,7 @@ export class Reel {
     if (symbolElements[index]) {
       const img = symbolElements[index].querySelector('img');
       if (img) {
-        img.src = `/img/${symbol}.png`;
+        img.src = `./img/${symbol}.png`;
         img.alt = symbol;
       }
       this.symbols[index] = symbol;
