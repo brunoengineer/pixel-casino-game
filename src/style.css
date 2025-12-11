@@ -82,13 +82,13 @@ body {
 }
 
 @keyframes pulseLeft {
-  0%, 100% { opacity: 0.6; transform: rotate(90deg) scale(1); }
-  50% { opacity: 1; transform: rotate(90deg) scale(1.1); }
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.1); }
 }
 
 @keyframes pulseRight {
-  0%, 100% { opacity: 0.6; transform: rotate(-90deg) scale(1); }
-  50% { opacity: 1; transform: rotate(-90deg) scale(1.1); }
+  0%, 100% { opacity: 0.6; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.1); }
 }
 
 .reels-container {
